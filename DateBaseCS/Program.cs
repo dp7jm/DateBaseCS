@@ -54,12 +54,40 @@ namespace DateBaseCS
             Console.WriteLine("open connection to oracle");
         }
     }
+    
+    public class DbCommand
+    {
+        private DbConnection DbConnect { get; set; }
+        private string Instruction { get; set; }
+        public DbCommand(DbConnection dbConnection, string instruction)
+        {
+            if (dbConnection.Equals(null) || string.IsNullOrWhiteSpace(instruction))
+            {
+                throw new NullReferenceException("null exception");
+            }
+            DbConnect = dbConnection;
+            Instruction = instruction;
+        }
+        public void Execute()
+        {
+            DbConnect.OpenConection();
+            Console.WriteLine(Instruction);
 
+        }
+    }
 
     class Program
     {
         static void Main(string[] args)
         {
+            DbCommand command = new DbCommand(new SqlConnection("password"), "fier");
+            command.Execute();
+
+            DbCommand command2 = new DbCommand(new OracleConnection("password"), "fier");
+            command2.Execute();
+
+            
+            Console.ReadKey();
         }
     }
 }
