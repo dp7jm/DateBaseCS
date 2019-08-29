@@ -22,6 +22,38 @@ namespace DateBaseCS
         public abstract void CloseConection();
         
     }
+    public class SqlConnection : DbConnection
+    {
+        public SqlConnection(string conectionString)
+            : base(conectionString) { }
+        
+        public override void CloseConection()
+        {
+            throw new NotImplementedException();
+        }
+
+        public override void OpenConection()
+        {
+            throw new NotImplementedException();
+        }
+    }
+    public class OracleConnection : DbConnection
+    {
+        public OracleConnection(string conectionString)
+            : base(conectionString)
+        {
+
+        }
+        public override void CloseConection()
+        {
+            throw new NotImplementedException();
+        }
+
+        public override void OpenConection()
+        {
+            throw new NotImplementedException();
+        }
+    }
     class Program
     {
         static void Main(string[] args)
