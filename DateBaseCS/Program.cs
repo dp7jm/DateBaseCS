@@ -29,12 +29,12 @@ namespace DateBaseCS
         
         public override void CloseConection()
         {
-            throw new NotImplementedException();
+            Console.WriteLine("close conection to sql");
         }
 
         public override void OpenConection()
         {
-            throw new NotImplementedException();
+            Console.WriteLine("open connection to sql");
         }
     }
     public class OracleConnection : DbConnection
@@ -46,14 +46,16 @@ namespace DateBaseCS
         }
         public override void CloseConection()
         {
-            throw new NotImplementedException();
+            Console.WriteLine("close connection to oracle");
         }
 
         public override void OpenConection()
         {
-            throw new NotImplementedException();
+            Console.WriteLine("open connection to oracle");
         }
     }
+
+
     class Program
     {
         static void Main(string[] args)
